@@ -23,7 +23,8 @@ bld/
 [Ll]og/
 
 # JS Scripts
-Scripts/
+/Scripts/
+*.js
 
 # Visual Studio 2015 cache/options directory
 .vs/
