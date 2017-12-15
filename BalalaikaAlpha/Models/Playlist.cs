@@ -7,11 +7,11 @@ namespace BalalaikaAlpha.Models
 {
     public class Playlist
     {
-        public IEnumerable<Song> Songs { get; set; }
+        public List<Song> Songs { get; set; }
 
         public Playlist() => Songs = new List<Song>();
         
-        public Playlist(IEnumerable<Song> songs)
+        public Playlist(List<Song> songs)
         {
             Songs = songs;
         }

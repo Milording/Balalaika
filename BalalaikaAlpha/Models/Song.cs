@@ -8,5 +8,12 @@ namespace BalalaikaAlpha.Models
     public class Song
     {
         public string Id { get; set; }
+
+        public Song() { }
+
+        public Song(string id)
+        {
+            Id = id;
+        }
     }
 }

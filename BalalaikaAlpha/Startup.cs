@@ -15,9 +15,10 @@ namespace BalalaikaAlpha
     {
         public void Configuration(IAppBuilder app)
         {
+            var playlistService = new PlaylistService();
             GlobalHost.DependencyResolver.Register(
                 typeof(BarHub),
-                () => new BarHub(new PlaylistService()));
+                () => new BarHub(playlistService));
 
             app.UseCors(CorsOptions.AllowAll);
             app.MapSignalR();
