@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 
-namespace BalalaikaAlpha
+namespace BalalaikaAlpha.Hubs
 {
     public class BarHub : Hub
     {
