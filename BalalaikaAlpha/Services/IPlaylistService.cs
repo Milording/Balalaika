@@ -11,7 +11,7 @@ namespace BalalaikaAlpha.Services
         Playlist StartDefaultPlaylist();
         void Next();
         void AddPremiumSong(string songId);
-        void Dislike();
+        bool Dislike();
         Playlist GetCurrentPlaylist();
     }
 }

@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using BalalaikaAlpha.Hubs;
+using BalalaikaAlpha.Services;
+using Microsoft.AspNet.SignalR;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Owin;
@@ -12,8 +15,13 @@ namespace BalalaikaAlpha
     {
         public void Configuration(IAppBuilder app)
         {
+            GlobalHost.DependencyResolver.Register(
+                typeof(BarHub),
+                () => new BarHub(new PlaylistService()));
+
             app.UseCors(CorsOptions.AllowAll);
             app.MapSignalR();
         }
+        
     }
 }

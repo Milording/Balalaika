@@ -12,12 +12,15 @@ namespace BalalaikaAlpha.Services
         private Playlist premiumPlaylist;
         private Playlist freePlaylist;
 
+        private int dislikes;
+
         public Playlist CurrentPlaylist => new Playlist(premiumPlaylist.Songs.Concat(freePlaylist.Songs));
 
         public PlaylistService()
         {
             premiumPlaylist = new Playlist();
             freePlaylist = new Playlist();
+            this.dislikes = 0;
         }
 
         public void AddPremiumSong(string songId)
@@ -25,9 +28,12 @@ namespace BalalaikaAlpha.Services
             throw new NotImplementedException();
         }
 
-        public void Dislike()
+        public bool Dislike()
         {
-            throw new NotImplementedException();
+            this.dislikes++;
+            if (this.dislikes >= 10)
+                return true;
+            else return false;
         }
 
         public Playlist GetCurrentPlaylist()
@@ -43,7 +49,6 @@ namespace BalalaikaAlpha.Services
         public Playlist StartDefaultPlaylist()
         {
             premiumPlaylist = new Playlist();
-
             freePlaylist = new Playlist()
             {
                 Songs = new List<Song>() {
@@ -54,6 +59,7 @@ namespace BalalaikaAlpha.Services
             };
 
             return CurrentPlaylist;
+            
         }
 
         
